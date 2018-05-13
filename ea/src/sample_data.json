@@ -1,30 +1,55 @@
 {
-    "Expeditions": {
-        "Expedition Alpha": {
-            "Day1": [
-                {
-                    "date":"Aug 22", 
-                    "activity": "flight",
-                    "notes": "this is flight"
-                },
-                {
-                    "date":"Aug 22", 
-                    "activity": "hotel",
-                    "notes": "this is hotel"
-                }
-            ],
-            "Day2": [
-                {
-                    "date":"Aug 23", 
-                    "activity": "hike",
-                    "notes": "this is hike"
-                },
-                {
-                    "date":"Aug 22", 
-                    "activity": "hotel",
-                    "notes": "this is hotel"
-                }
-            ]
-        }
+    "Alpha001": {
+        "title":"Expedition Alpha",
+        "day1": [
+            {
+                "date":"Aug 22", 
+                "activity": "flight",
+                "notes": "this is flight"
+            },
+            {
+                "date":"Aug 22", 
+                "activity": "hotel",
+                "notes": "this is hotel"
+            }
+        ],
+        "day2": [
+            {
+                "date":"Aug 23", 
+                "activity": "hike",
+                "notes": "this is hike"
+            },
+            {
+                "date":"Aug 22", 
+                "activity": "hotel",
+                "notes": "this is hotel"
+            }
+        ]
+    },
+    "Alpha002": {
+        "Day1": [
+            {
+                "date":"Aug 22", 
+                "activity": "flight",
+                "notes": "this is flight"
+            },
+            {
+                "date":"Aug 22", 
+                "activity": "hotel",
+                "notes": "this is hotel"
+            }
+        ],
+        "Day2": [
+            {
+                "date":"Aug 23", 
+                "activity": "hike",
+                "notes": "this is hike"
+            },
+            {
+                "date":"Aug 22", 
+                "activity": "hotel",
+                "notes": "this is hotel"
+            }
+        ]
     }
 }

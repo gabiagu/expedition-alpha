@@ -1,0 +1,30 @@
+{
+    "Expeditions": {
+        "Expedition Alpha": {
+            "Day1": [
+                {
+                    "date":"Aug 22", 
+                    "activity": "flight",
+                    "notes": "this is flight"
+                },
+                {
+                    "date":"Aug 22", 
+                    "activity": "hotel",
+                    "notes": "this is hotel"
+                }
+            ],
+            "Day2": [
+                {
+                    "date":"Aug 23", 
+                    "activity": "hike",
+                    "notes": "this is hike"
+                },
+                {
+                    "date":"Aug 22", 
+                    "activity": "hotel",
+                    "notes": "this is hotel"
+                }
+            ]
+        }
+    }
+}

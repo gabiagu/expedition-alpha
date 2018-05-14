@@ -11,29 +11,12 @@ class ExpeditionPage extends Component {
 
   render() {
     console.log(this.props.data);
-    var ExpeditionTitle = this.props.data.Alpha001.title;
     
-    for (var i = 0; i < this.props.data[i]; i++) {
-        ExpeditionTitle = this.props.data.key;
-        console.log(ExpeditionTitle);
-    } 
-
-    //console.log(this.props.data.Alpha001.title);
-    //console.log(this.props.data["Alpha001"].Day1["0"].activity);
-
-    /*const DayList = ([
-      "Aug 22", "Aug 23", "Aug 24"
-    ]);*/
+    let ExpeditionTitle = this.props.data.Alpha001.title;
+    console.log(ExpeditionTitle);
 
     function DayList(props) {
       const days = props.days;
-      /*const listItems = days.map((day) =>
-        <li>
-          {day.date}
-          {day.activity}
-          {day.notes}
-        </li>
-      );*/
 
       return (
       <div>
@@ -48,9 +31,7 @@ class ExpeditionPage extends Component {
           })}
       </div>
       );
-      /*return (
-        <ul>{listItems}</ul>
-      );*/
+
     }
 
     const days = this.props.data.Alpha001.day1;

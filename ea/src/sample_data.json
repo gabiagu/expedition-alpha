@@ -11,6 +11,11 @@
                 "date":"Aug 22", 
                 "activity": "hotel",
                 "notes": "this is hotel"
+            },
+            {
+                "date":"Aug 22", 
+                "activity": "hike",
+                "notes": "this is hike"
             }
         ],
         "day2": [

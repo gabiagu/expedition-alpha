@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ExpeditionList.css';
 
+
 class ExpeditionList extends Component {
   
   handleClick(e) {

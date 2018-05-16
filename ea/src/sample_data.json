@@ -1,33 +1,69 @@
 {
     "Alpha001": {
         "title":"Expedition Alpha",
-        "day1": [
+        "days": [
             {
                 "date":"Aug 22", 
-                "activity": "flight",
-                "notes": "this is flight"
+                "activities": [
+                    {
+                        "activity1": [
+                            {
+                                "type":"hike",
+                                "time":"2h",
+                                "notes":"this is a note for hike"
+                            }
+                        ],
+                        "activity2": [
+                            {
+                                "type":"flight",
+                                "time":"4h",
+                                "notes":"this is a note for hike"
+                            }
+                        ]
+                    }
+                ]
             },
-            {
-                "date":"Aug 22", 
-                "activity": "hotel",
-                "notes": "this is hotel"
-            },
-            {
-                "date":"Aug 22", 
-                "activity": "hike",
-                "notes": "this is hike"
-            }
-        ],
-        "day2": [
             {
                 "date":"Aug 23", 
-                "activity": "hike",
-                "notes": "this is hike"
+                "activities": [
+                    {
+                        "activity1": [
+                            {
+                                "type":"hike",
+                                "time":"2h",
+                                "notes":"this is a note for hike"
+                            }
+                        ],
+                        "activity2": [
+                            {
+                                "type":"flight",
+                                "time":"4h",
+                                "notes":"this is a note for hike"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "date":"Aug 22", 
-                "activity": "hotel",
-                "notes": "this is hotel"
+                "date":"Aug 24", 
+                "activities": [
+                    {
+                        "activity1": [
+                            {
+                                "type":"hike",
+                                "time":"2h",
+                                "notes":"this is a note for hike"
+                            }
+                        ],
+                        "activity2": [
+                            {
+                                "type":"flight",
+                                "time":"4h",
+                                "notes":"this is a note for hike"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },

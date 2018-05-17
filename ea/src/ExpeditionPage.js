@@ -18,7 +18,7 @@ class ExpeditionPage extends Component {
   }
 
   render() {
-    console.log(this.props.data);
+    //console.log(this.props.data);
     
     let ExpeditionTitle = this.props.data.Alpha001.title;
     //console.log(ExpeditionTitle);
@@ -35,13 +35,18 @@ class ExpeditionPage extends Component {
         {days.map(function(object, i){
           return <div className={"row"} key={i}> 
               {[ object.name ,
-                 // remove the key
-                 //<b className="fosfo" key={i}> {object.activity} </b> , 
-                 //object.notes
-                 <ExpeditionDay data={props.days} />,
+                  // remove the key
+                  //<b className="fosfo" key={i}> {object.activity} </b> , 
+                  //object.notes
 
-                <p className="date"> {object.date} </p>
+                  // console.log(props.days.activities[0].length),
 
+                  <ExpeditionDay data={props.days[i]} />,
+
+                  <p className="ExpeditionPage-date"> {object.date} </p>,
+
+                  <p className="ExpeditionPage-date"> {object.activity_total} </p>
+                  
               ]}
             </div>; 
           })}
@@ -51,14 +56,20 @@ class ExpeditionPage extends Component {
     }
 
     const days = this.props.data.Alpha001.days;
-    // 
+    let TotalDayCount = this.props.data.Alpha001.days.length;
+    
     return (
       <div>
         <div className="ExpeditionPage-header">
           <h1>{ExpeditionTitle}</h1>
+          <p> {TotalDayCount} days | date start - date end?</p>
         </div>
         <div className="ExpeditionPage-content">
+          
+          {/* buttons to each day? */}
+          
           <DayList days={days} />
+          
         </div>
       </div>
     );

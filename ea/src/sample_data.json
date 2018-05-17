@@ -4,6 +4,7 @@
         "days": [
             {
                 "date":"Aug 22", 
+                "activity_total":2,
                 "activities": [
                     {
                         "activity1": [
@@ -17,14 +18,15 @@
                             {
                                 "type":"flight",
                                 "time":"4h",
-                                "notes":"this is a note for hike"
+                                "notes":"this is a note for flight"
                             }
                         ]
                     }
                 ]
             },
             {
-                "date":"Aug 23", 
+                "date":"Aug 23",
+                "activity_total":4, 
                 "activities": [
                     {
                         "activity1": [
@@ -38,7 +40,7 @@
                             {
                                 "type":"flight",
                                 "time":"4h",
-                                "notes":"this is a note for hike"
+                                "notes":"this is a note for flight"
                             }
                         ]
                     }
@@ -46,6 +48,7 @@
             },
             {
                 "date":"Aug 24", 
+                "activity_total":3,
                 "activities": [
                     {
                         "activity1": [

@@ -10,7 +10,7 @@ class ExpeditionActivity extends Component {
 
   render() {
 
-    console.log(this.props.data);
+    // console.log(this.props.data);
 
     //console.log(this.props.data.Alpha001.days[0].date);
     //console.log(this.props.data.Alpha001.days[0].activities[0].activity1[0].notes);

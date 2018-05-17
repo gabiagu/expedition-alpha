@@ -14,7 +14,7 @@ class ExpeditionDay extends Component {
 
     
 
-    // console.log(this.props.data);
+    console.log(this.props.data);
 
     //console.log(this.props.data.Alpha001.days[0].date);
     //console.log(this.props.data.Alpha001.days[0].activities[0].activity1[0].notes);
@@ -22,7 +22,12 @@ class ExpeditionDay extends Component {
 
     return (
       <div>
-        <ExpeditionActivity data={this.data} />
+        <div className="foobar">
+          
+        </div>
+        <div className="activity_list">
+          <ExpeditionActivity data={this.data} />
+        </div>
       </div>
     );
   }

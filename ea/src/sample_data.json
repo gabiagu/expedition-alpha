@@ -7,20 +7,14 @@
                 "activity_total":2,
                 "activities": [
                     {
-                        "activity1": [
-                            {
-                                "type":"hike",
-                                "time":"2h",
-                                "notes":"this is a note for hike"
-                            }
-                        ],
-                        "activity2": [
-                            {
-                                "type":"flight",
-                                "time":"4h",
-                                "notes":"this is a note for flight"
-                            }
-                        ]
+                        "type":"flight",
+                        "time":"2h",
+                        "notes":"this is a note for flight"
+                    },
+                    {
+                        "type":"hike",
+                        "time":"4h",
+                        "notes":"this is a note for hike"
                     }
                 ]
             },
@@ -29,20 +23,19 @@
                 "activity_total":4, 
                 "activities": [
                     {
-                        "activity1": [
-                            {
-                                "type":"hike",
-                                "time":"2h",
-                                "notes":"this is a note for hike"
-                            }
-                        ],
-                        "activity2": [
-                            {
-                                "type":"flight",
-                                "time":"4h",
-                                "notes":"this is a note for flight"
-                            }
-                        ]
+                        "type":"hike",
+                        "time":"2h",
+                        "notes":"this is a note for hike"
+                    },
+                    {
+                        "type":"hike",
+                        "time":"2h",
+                        "notes":"this is a note for hike 2"
+                    },
+                    {
+                        "type":"flight",
+                        "time":"4h",
+                        "notes":"this is a note for flight"
                     }
                 ]
             },
@@ -51,20 +44,19 @@
                 "activity_total":3,
                 "activities": [
                     {
-                        "activity1": [
-                            {
-                                "type":"hike",
-                                "time":"2h",
-                                "notes":"this is a note for hike"
-                            }
-                        ],
-                        "activity2": [
-                            {
-                                "type":"flight",
-                                "time":"4h",
-                                "notes":"this is a note for hike"
-                            }
-                        ]
+                        "type":"hike",
+                        "time":"2h",
+                        "notes":"this is a note for hike"
+                    },
+                    {
+                        "type":"train",
+                        "time":"2h",
+                        "notes":"this is a note for train"
+                    },
+                    {
+                        "type":"flight",
+                        "time":"4h",
+                        "notes":"this is a note for flight"
                     }
                 ]
             }

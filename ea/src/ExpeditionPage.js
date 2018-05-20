@@ -13,7 +13,7 @@ class ExpeditionPage extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    console.log('The link was clicked.');
+    console.log('The button was clicked.');
     // should load an expedition page
   }
 
@@ -26,13 +26,13 @@ class ExpeditionPage extends Component {
     //console.log(this.props.data.Alpha001.days[0].date);
     //console.log(this.props.data.Alpha001.days[0].activities[0].activity1[0].notes);
 
-
     function DayList(props) {
       const days = props.days;
 
       return (
       <div>
         {days.map(function(object, i){
+
           return <div className={"row"} key={i}> 
               {[ object.name ,
                   // remove the key
@@ -41,12 +41,8 @@ class ExpeditionPage extends Component {
 
                   // console.log(props.days.activities[0].length),
 
-                  <ExpeditionDay data={props.days[i]} />,
+                  <ExpeditionDay data={props.days[i]} />
 
-                  <p className="ExpeditionPage-date"> {object.date} </p>,
-
-                  <p className="ExpeditionPage-date"> {object.activity_total} </p>
-                  
               ]}
             </div>; 
           })}
@@ -57,12 +53,16 @@ class ExpeditionPage extends Component {
 
     const days = this.props.data.Alpha001.days;
     let TotalDayCount = this.props.data.Alpha001.days.length;
+    let StartDate = this.props.data.Alpha001.days[0].date;
+    let EndDate = this.props.data.Alpha001.days[days.length-1].date;
     
     return (
       <div>
         <div className="ExpeditionPage-header">
           <h1>{ExpeditionTitle}</h1>
-          <p> {TotalDayCount} days | date start - date end?</p>
+          <p>
+            <b>{TotalDayCount}</b> days &bull; from <b>{StartDate}</b> until <b>{EndDate}</b>
+          </p>
         </div>
         <div className="ExpeditionPage-content">
           

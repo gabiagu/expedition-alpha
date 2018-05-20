@@ -1,0 +1,14 @@
+.ExpeditionDay-launcher {
+	display: inline-block;
+	width: 100%;
+	padding: 1em 0;
+	text-decoration: none;
+	font-size: 18px;
+	color: blue; /* light blue */
+	border-bottom: 1px dashed #999;
+}
+
+.ExpeditionDay-launcher:hover {
+	color: teal; /* lighter blue */
+	/*background: blue;*/
+}

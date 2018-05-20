@@ -5,8 +5,12 @@
   list-style-type: none; 
 }
 
+body {
+  /*background: #005662;*/
+}
+
 .App-header {
-  background-color: #222;
+  /*background-color: #222;*/
   padding: 20px;
   color: white;
   text-align: center;
@@ -18,5 +22,8 @@
 
 .App-content {
   padding: 30px;
+  max-width: 70%;
+  margin: 0 auto;
+  border: 2px solid #ddd;
 }
 

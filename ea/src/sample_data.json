@@ -5,18 +5,7 @@
             {
                 "date":"Aug 22", 
                 "listId":1,
-                "activities": [
-                    {
-                        "type":"flight",
-                        "time":"2h",
-                        "notes":"this is a note for flight"
-                    },
-                    {
-                        "type":"hike",
-                        "time":"4h",
-                        "notes":"this is a note for hike"
-                    }
-                ]
+                "activities": []
             },
             {
                 "date":"Aug 23",

@@ -33,14 +33,14 @@ class ExpeditionPage extends Component {
       <div>
         {days.map(function(object, i){
 
-          return <div className={"row"} key={i}> 
+          return <div className={"row"} key={object.listId.toString()}> 
               {[ object.name ,
                   // remove the key
                   //<b className="fosfo" key={i}> {object.activity} </b> , 
                   //object.notes
 
                   // console.log(props.days.activities[0].length),
-
+                  // console.log(object),
                   <ExpeditionDay data={props.days[i]} />
 
               ]}

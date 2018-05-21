@@ -4,7 +4,7 @@
         "days": [
             {
                 "date":"Aug 22", 
-                "activity_total":2,
+                "listId":1,
                 "activities": [
                     {
                         "type":"flight",
@@ -20,7 +20,7 @@
             },
             {
                 "date":"Aug 23",
-                "activity_total":4, 
+                "listId":2, 
                 "activities": [
                     {
                         "type":"hike",
@@ -41,7 +41,7 @@
             },
             {
                 "date":"Aug 24", 
-                "activity_total":3,
+                "listId":3,
                 "activities": [
                     {
                         "type":"hike",

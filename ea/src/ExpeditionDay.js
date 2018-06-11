@@ -11,11 +11,14 @@ class ExpeditionDay extends Component {
     this.data = this.props.data;    
     this.state = {
       listIsHidden: true,
-      editMode: false,
+      editMode: this.props.editmode,
       showList: false
     };
     // this.handleClick = this.handleClick.bind(this);
+    // console.log(this.state.editMode);
   }
+
+  
 
   toggleList(e) {
     e.preventDefault();
@@ -47,12 +50,13 @@ class ExpeditionDay extends Component {
 
       if (activities.length) {
         // if there is data, show stuff
-        if ( props.mode === 'edit' ) {
+        console.log(props.editmode)
+        if ( props.editmode ) {
           // edit mode with data
           return (
             <div className="ExpeditionDay-list" >
               {activities.map(function(object, i){
-                return <div className={"row"} key={object.type.toString()}> 
+                return <div className={"row"} key={object.activityId}> 
                     {[ object.name ,
                         // calls each activity component
                         <ExpeditionActivity data={props.activities[i]} mode="edit" />
@@ -66,7 +70,7 @@ class ExpeditionDay extends Component {
           return (
             <div className="ExpeditionDay-list" >
               {activities.map(function(object, i){
-                return <div className={"row"} key={i}> 
+                return <div className={"row"} key={object.activityId}> 
                     {[ object.name ,
                         // calls each activity component
                         <ExpeditionActivity data={props.activities[i]} mode="display" />
@@ -130,24 +134,24 @@ class ExpeditionDay extends Component {
         // show only date
         return (
           <div className="ExpeditionDay-wrapper">
-            <div className={dateClassNames}>
+            <div className={dateClassNames}
+              onClick={(e) => this.toggleList(e)}
+            >
+
+              <button 
+                className="ExpeditionDay-button"
+                onClick={(e) => this.toggleList(e)}
+                title="expand"
+                >
+                  >
+              </button>
+
               <span className="ExpeditionDay-date">
                 {this.props.data.date}
               </span>&nbsp;
 
               (<span className="ExpeditionDay-activity-count">{this.props.data.activities.length} activities</span>)
-              <button 
-                className="ExpeditionDay-button"
-                onClick={(e) => this.toggleList(e)}
-                >
-                  show
-              </button>
-              <button 
-                className="ExpeditionDay-button"
-                onClick={(e) => this.toggleMode(e)}
-                >
-                  edit
-              </button>
+              
             </div>
             
           </div>
@@ -158,24 +162,20 @@ class ExpeditionDay extends Component {
         return (
           <div className="ExpeditionDay-wrapper">
             <div className={dateClassNames}>
-
+              <button 
+                className="ExpeditionDay-button"
+                onClick={(e) => this.toggleList(e)}
+                title="collapse"
+                >
+                  ^
+              </button>
               <span className="ExpeditionDay-date">
                 {this.props.data.date}
               </span>&nbsp;
 
               (<span className="ExpeditionDay-activity-count">{this.props.data.activities.length} activities</span>)
-              <button 
-                className="ExpeditionDay-button"
-                onClick={(e) => this.toggleList(e)}
-                >
-                  hide
-              </button>
-              <button 
-                className="ExpeditionDay-button"
-                onClick={(e) => this.toggleMode(e)}
-                >
-                  edit
-              </button>
+              
+              
             </div>
             
             <div>

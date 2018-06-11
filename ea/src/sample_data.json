@@ -4,48 +4,54 @@
         "days": [
             {
                 "date":"Aug 22", 
-                "listId":1,
+                "listId":101,
                 "activities": []
             },
             {
                 "date":"Aug 23",
-                "listId":2, 
+                "listId":102, 
                 "activities": [
                     {
                         "type":"hike",
                         "time":"2h",
-                        "notes":"this is a note for hike"
+                        "notes":"this is a note for hike",
+                        "activityId":201
                     },
                     {
                         "type":"hike",
                         "time":"2h",
-                        "notes":"this is a note for hike 2"
+                        "notes":"this is a note for hike 2",
+                        "activityId":202
                     },
                     {
                         "type":"flight",
                         "time":"4h",
-                        "notes":"this is a note for flight"
+                        "notes":"this is a note for flight",
+                        "activityId":203
                     }
                 ]
             },
             {
                 "date":"Aug 24", 
-                "listId":3,
+                "listId":103,
                 "activities": [
                     {
                         "type":"hike",
                         "time":"2h",
-                        "notes":"this is a note for hike"
+                        "notes":"this is a note for hike",
+                        "activityId":303
                     },
                     {
                         "type":"train",
                         "time":"2h",
-                        "notes":"this is a note for train"
+                        "notes":"this is a note for train",
+                        "activityId":304
                     },
                     {
                         "type":"flight",
                         "time":"4h",
-                        "notes":"this is a note for flight"
+                        "notes":"this is a note for flight",
+                        "activityId":305
                     }
                 ]
             }

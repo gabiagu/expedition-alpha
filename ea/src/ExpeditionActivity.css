@@ -3,6 +3,9 @@
 	padding: 1em;
 	border-bottom: 1px solid #ddd;
 	line-height: 1.4;
+    clear: both;
+    overflow: hidden;
+    display: block;
 }
 
 .ExpeditionActivity-button {
@@ -12,4 +15,16 @@
 	cursor: pointer;
 	border-radius: 20px;
 	font-size: 14px;
+}
+
+.ExpeditionDay-button:focus {
+    outline: none;
+}
+
+.EA-item-actions {
+    float: left;
+    display: inline-block;
+}
+.EA-item-content {
+    float: left;
 }

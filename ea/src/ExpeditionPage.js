@@ -9,6 +9,9 @@ class ExpeditionPage extends Component {
   constructor(props) {
       super(props);
       this.data = this.props.data;    
+      this.state = {
+        editMode: false
+      };
   }
 
   handleClick(e) {
@@ -17,9 +20,16 @@ class ExpeditionPage extends Component {
     // should load an expedition page
   }
 
-  render() {
-    //console.log(this.props.data);
-    
+  toggleMode(e) {
+    e.preventDefault();
+    this.setState({
+      editMode: !this.state.editMode
+    })
+    // console.log(this.state.listIsHidden);
+  }
+
+  renderThing() {
+
     let ExpeditionTitle = this.props.data.Alpha001.title;
     //console.log(ExpeditionTitle);
 
@@ -30,23 +40,21 @@ class ExpeditionPage extends Component {
       const days = props.days;
 
       return (
-      <div>
-        {days.map(function(object, i){
+        <div>
+          {days.map(function(object, i){
 
-          return <div className={"row"} key={object.listId.toString()}> 
-              {[ object.name ,
-                  // remove the key
-                  //<b className="fosfo" key={i}> {object.activity} </b> , 
-                  //object.notes
+            return <div className={"row"} key={object.listId.toString()}> 
+                {[ object.name ,
 
-                  // console.log(props.days.activities[0].length),
-                  // console.log(object),
-                  <ExpeditionDay data={props.days[i]} />
+                    // console.log(props.days.activities[0].length),
+                    // console.log(object),
+                    // console.log(object.listId.toString()),
+                    <ExpeditionDay data={props.days[i]} editmode={props.editmode} />
 
-              ]}
-            </div>; 
-          })}
-      </div>
+                ]}
+              </div>; 
+            })}
+        </div>
       );
 
     }
@@ -55,24 +63,66 @@ class ExpeditionPage extends Component {
     let TotalDayCount = this.props.data.Alpha001.days.length;
     let StartDate = this.props.data.Alpha001.days[0].date;
     let EndDate = this.props.data.Alpha001.days[days.length-1].date;
-    
+
+    if ( this.state.editMode ) {
+    // edit mode
+
+      return (
+        <div>
+          <div className="ExpeditionPage-header">
+            <h1>{ExpeditionTitle}</h1>
+            <p>
+              <b>{TotalDayCount}</b> days &bull; from <b>{StartDate}</b> until <b>{EndDate}</b>
+            </p>
+          </div>
+          <div className="ExpeditionPage-content">
+            
+            {/* buttons to each day? */}
+            
+            <DayList days={days} editmode={this.state.editMode} />
+            
+          </div>
+        </div>
+      );
+
+    } else {
+      // display mode
+      return (
+        <div>
+          <div className="ExpeditionPage-header">
+            <h1>{ExpeditionTitle}</h1>
+            <p>
+              <b>{TotalDayCount}</b> days &bull; from <b>{StartDate}</b> until <b>{EndDate}</b>
+            </p>
+          </div>
+          <div className="ExpeditionPage-content">
+            
+            {/* buttons to each day? */}
+            
+            <DayList days={days} editmode={this.state.editMode} />
+            
+            <button  
+              className="ExpeditionActivity-button"
+              onClick={(e) => this.toggleMode(e)}
+              >
+              edit
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+  }
+
+  render() {
+    //console.log(this.props.data);
+      
     return (
-      <div>
-        <div className="ExpeditionPage-header">
-          <h1>{ExpeditionTitle}</h1>
-          <p>
-            <b>{TotalDayCount}</b> days &bull; from <b>{StartDate}</b> until <b>{EndDate}</b>
-          </p>
-        </div>
-        <div className="ExpeditionPage-content">
-          
-          {/* buttons to each day? */}
-          
-          <DayList days={days} />
-          
-        </div>
-      </div>
+
+      this.renderThing()
+      
     );
+
   }
 }
 

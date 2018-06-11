@@ -26,16 +26,16 @@ class ExpeditionActivity extends Component {
     const ActivityDuration = data.time;
     const ActivityNotes = data.notes;
 
-    if ( ActivityType === 'flight' ) {
+    /*if ( ActivityType === 'flight' ) {
       
-      /* FLIGHT
+       FLIGHT
         - start point (IATA)
         - end point (IATA)
         - take off time
         - landing time
         - air time
         - notes
-      */
+      
 
       return (
         <div className="ExpeditionActivity-item">
@@ -48,14 +48,14 @@ class ExpeditionActivity extends Component {
 
     } else if  ( ActivityType === 'train' ) {
 
-      /* TRAIN/BUS/CAR
+      TRAIN/BUS/CAR
         - start point (string)
         - end point (string)
         - departure time
         - arrival time
         - air time
         - notes
-      */
+      
 
       return (
         <div className="ExpeditionActivity-item">
@@ -68,14 +68,14 @@ class ExpeditionActivity extends Component {
 
     } else if  ( ActivityType === 'hike' ) {
 
-      /* HIKE
+      HIKE
         - start point (string)
         - end point (string)
         - departure time
         - estimated duration
         - difficulty
         - notes
-      */
+      
 
       return (
         <div className="ExpeditionActivity-item">
@@ -94,6 +94,48 @@ class ExpeditionActivity extends Component {
           <br />
           <p className="ExpeditionActivity-duration">Duration: {ActivityDuration}</p>
           <p className="ExpeditionActivity-notes">Notes: {ActivityNotes}</p>
+        </div>
+      );
+
+    } */
+
+    if ( props.mode === 'edit' ) {
+
+      return (
+        <div className="ExpeditionActivity-item">
+          <b className="ExpeditionActivity-type">{ActivityType}</b>
+          <br />
+          <p className="ExpeditionActivity-duration">Duration: {ActivityDuration}</p>
+          <p className="ExpeditionActivity-notes">Notes: {ActivityNotes}</p>
+        </div>
+      );
+
+    } else {
+
+      return (
+        <div className="ExpeditionActivity-item">
+          <div className="EA-item-actions">
+            <button  
+               className="ExpeditionActivity-button"
+              onClick={(e) => this.toggleMode(e)}
+              >
+              edit
+            </button><br />
+            <button  
+              className="ExpeditionActivity-button"
+              onClick={(e) => this.toggleMode(e)}
+              >
+              delete
+            </button>
+          </div>
+          <div className="EA-item-content">
+
+            <b className="ExpeditionActivity-type">{ActivityType}</b>
+            <br />
+            <p className="ExpeditionActivity-duration">Duration: {ActivityDuration}</p>
+            <p className="ExpeditionActivity-notes">Notes: {ActivityNotes}</p>
+
+          </div>
         </div>
       );
 
@@ -113,25 +155,14 @@ class ExpeditionActivity extends Component {
       if (dayInfo) {
         // we have some data
         return (
-          'in edit mode WITH data'
-        );
-      } else {
-        // no data, show blank fields
-        return (
-          'in edit mode NO data'
-        );
-      }
-
-      
-    } else {
-      // display mode
-      if (dayInfo) {
-        return (
           <div>
+
             <this.RenderActivity data={dayInfo} />
+            
           </div>
         );
       } else {
+        // no data, show blank fields
         return (
           <div>
             <em>Nothing planned for this day</em>
@@ -146,6 +177,17 @@ class ExpeditionActivity extends Component {
           </div>
         );
       }
+
+      
+    } else {
+      // display mode
+      if (dayInfo) {
+        return (
+          <div>
+            <this.RenderActivity data={dayInfo} mode='display' />
+          </div>
+        );
+      } 
       
     }
   }

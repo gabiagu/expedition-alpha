@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './ExpeditionDay.css';
 import ExpeditionActivity from './ExpeditionActivity';
 import './ExpeditionActivity.css';
+// import axios from 'axios';
+
 
 
 class ExpeditionDay extends Component {
@@ -50,36 +52,22 @@ class ExpeditionDay extends Component {
 
       if (activities.length) {
         // if there is data, show stuff
-        console.log(props.editmode)
-        if ( props.editmode ) {
-          // edit mode with data
-          return (
-            <div className="ExpeditionDay-list" >
-              {activities.map(function(object, i){
-                return <div className={"row"} key={object.activityId}> 
-                    {[ object.name ,
-                        // calls each activity component
-                        <ExpeditionActivity data={props.activities[i]} mode="edit" />
-                    ]}
-                  </div>; 
-                })}
-            </div>
-          );
-        } else {
-          // display mode with data
-          return (
-            <div className="ExpeditionDay-list" >
-              {activities.map(function(object, i){
-                return <div className={"row"} key={object.activityId}> 
-                    {[ object.name ,
-                        // calls each activity component
-                        <ExpeditionActivity data={props.activities[i]} mode="display" />
-                    ]}
-                  </div>; 
-                })}
-            </div>
-          );
-        }
+        // console.log(props.editmode)
+        
+        // display mode with data
+        return (
+          <div className="ExpeditionDay-list" >
+            {activities.map(function(object, i){
+              return <div className={"row"} key={object.activityId}> 
+                  {[ object.name ,
+                      // calls each activity component
+                      <ExpeditionActivity data={props.activities[i]} mode="display" />
+                  ]}
+                </div>; 
+              })}
+          </div>
+        );
+        
         
       } else {
         // edit mode without data
@@ -161,7 +149,9 @@ class ExpeditionDay extends Component {
         // show date and list
         return (
           <div className="ExpeditionDay-wrapper">
-            <div className={dateClassNames}>
+            <div className={dateClassNames}
+              onClick={(e) => this.toggleList(e)}
+              >
               <button 
                 className="ExpeditionDay-button"
                 onClick={(e) => this.toggleList(e)}

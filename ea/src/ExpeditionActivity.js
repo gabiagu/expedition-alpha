@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './ExpeditionActivity.css';
+// import axios from 'axios';
+
 
 class ExpeditionActivity extends Component {
 

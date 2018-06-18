@@ -8,11 +8,6 @@
 	border-bottom: 1px dashed #999;
 }
 
-.ExpeditionDay-launcher:hover {
-	color: teal; /* lighter blue */
-	/*background: blue;*/
-}
-
 .ExpeditionDay-button {
 	border: 1px solid #ccc;
 	padding: 5px 10px;

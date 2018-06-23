@@ -91,7 +91,8 @@ class ExpeditionPage extends Component {
           
           <DayList days={this.props.data.days} editmode={this.state.editMode} />
           
-          <AddDay />
+          
+          <AddDay data={this.props.data} />
 
           {/*<button  
             className="ExpeditionActivity-button"

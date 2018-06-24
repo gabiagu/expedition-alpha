@@ -5,6 +5,8 @@ import axios from 'axios';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
+// let dates_array = [];
+
 class AddDay extends Component {
 
   constructor(props) {
@@ -13,7 +15,9 @@ class AddDay extends Component {
     this.state = {
       startDate: moment(),
       isOpen: false,
-      date:''
+      date:'',
+      dates_array: this.props.dates_array,
+      highlightDates: this.props.dates_array
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -22,15 +26,20 @@ class AddDay extends Component {
     this.setState({startDate: date});
 
     let newDateName = moment(date).format('LL').toString().split(',')[0];
-    let newDate = moment(date).format('l');
+    let newDate = moment(date).format('L');
     
     this.toggleCalendar();
+
     this.submitDate(newDateName, newDate);
   }
-  
+
   toggleCalendar (e) {
     e && e.preventDefault()
-    this.setState({isOpen: !this.state.isOpen})
+    this.setState({isOpen: !this.state.isOpen});
+    this.setState({highlightDates: this.state.dates_array})
+    
+    console.log(this.state.dates_array);
+
   }
 
   submitDate(newDateName, newDate) {
@@ -38,9 +47,13 @@ class AddDay extends Component {
     var newDateDay = newDate.split('/')[1];
     var newDateMonth = newDate.split('/')[0];
 
-    let newDateForJson = newDateMonth.toString() + newDateDay;
+    let newDateForJson = newDateMonth.toString() + newDateDay.toString();
 
-    let newDateContent = {id:parseInt(newDateForJson, 10),date:newDateName.toString(),dateDay:parseInt(newDateDay, 10),dateMonth:parseInt(newDateMonth, 10),listId:parseInt(newDateForJson, 10),activities:[]};
+    /*newDate = newDate.replace(/\//gi, '');
+    console.log(newDate);
+    return false;*/
+
+    let newDateContent = {id:parseInt(newDateForJson, 10),date:newDateName.toString(),dateDay:parseInt(newDateDay, 10),dateMonth:parseInt(newDateMonth, 10),fullDate:newDate,listId:newDate.toString(),activities:[]};
 
     //newDateContent = JSON.stringify(newDateContent);
 
@@ -70,7 +83,7 @@ class AddDay extends Component {
 
     this.data.days.splice(newDateIndex, 0, newDateContent);
 
-    console.log(this.data.days);
+    // console.log(this.data.days);
 
     let days = this.data.days;
 
@@ -86,6 +99,7 @@ class AddDay extends Component {
       console.log(error);
     });
   }
+
   
 
 
@@ -108,6 +122,7 @@ class AddDay extends Component {
             dateFormat="LL"
             placeholderText="Choose date"
             locale="en-gb"
+            // highlightDates={[this.state.dates_array]}
             minDate={moment()}
             withPortal
             inline 

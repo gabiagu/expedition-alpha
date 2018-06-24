@@ -3,43 +3,11 @@
     "title": "Expedition Alpha",
     "days": [
       {
-        "id": 96,
-        "date": "September 6",
-        "dateDay": 6,
-        "dateMonth": 9,
-        "listId": 96,
-        "activities": []
-      },
-      {
-        "id": 628,
-        "date": "June 28",
-        "dateDay": 28,
-        "dateMonth": 6,
-        "listId": 628,
-        "activities": []
-      },
-      {
-        "id": 711,
-        "date": "July 11",
-        "dateDay": 11,
-        "dateMonth": 7,
-        "listId": 711,
-        "activities": []
-      },
-      {
-        "id": 822,
-        "date": "Aug 22",
-        "dateDay": 22,
-        "dateMonth": 8,
-        "listId": 101,
-        "activities": []
-      },
-      {
         "id": 823,
         "date": "Aug 23",
         "dateDay": 23,
         "dateMonth": 8,
-        "listId": 102,
+        "fullDate": "08/23/2018",
         "activities": [
           {
             "type": "hike",
@@ -66,7 +34,7 @@
         "date": "Aug 24",
         "dateDay": 24,
         "dateMonth": 8,
-        "listId": 103,
+        "fullDate": "08/24/2018",
         "activities": [
           {
             "type": "hike",
@@ -93,7 +61,7 @@
         "date": "August 29",
         "dateDay": 29,
         "dateMonth": 8,
-        "listId": 829,
+        "fullDate": "08/29/2018",
         "activities": []
       }
     ]

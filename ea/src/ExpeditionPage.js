@@ -4,6 +4,7 @@ import ExpeditionDay from './ExpeditionDay';
 import './ExpeditionDay.css';
 import AddDay from './forms/AddDay';
 import './forms/AddDay.css';
+import moment from 'moment';
 // import axios from 'axios';
 
 
@@ -18,12 +19,6 @@ class ExpeditionPage extends Component {
       };
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    console.log('The button was clicked.');
-    // should load an expedition page
-  }
-
   toggleMode(e) {
     e.preventDefault();
     this.setState({
@@ -32,13 +27,11 @@ class ExpeditionPage extends Component {
     // console.log(this.state.listIsHidden);
   }
 
-  addDay() {
-    console.log('try to add a friggin day')
-  }
-
   renderThing() {
 
     // console.log(this.props.data);
+
+    let dates_array = [moment('06/27/2018'),moment('06/28/2018')];
 
     let ExpeditionTitle = this.props.data.title;
     //console.log(ExpeditionTitle);
@@ -53,7 +46,7 @@ class ExpeditionPage extends Component {
         <div>
           {days.map(function(object, i){
 
-            return <div className={"row"} key={object.listId.toString()+'-'+object.id.toString()}> 
+            return <div className={"row"} key={object.id.toString()}> 
                 {[ object.name ,
 
                     // console.log(props.days.activities[0].length),
@@ -89,10 +82,13 @@ class ExpeditionPage extends Component {
           
           {/* buttons to each day? */}
           
-          <DayList days={this.props.data.days} editmode={this.state.editMode} />
+          <DayList 
+            days={this.props.data.days} 
+            editmode={this.state.editMode}
+            />
           
           
-          <AddDay data={this.props.data} />
+          <AddDay data={this.props.data} dates_array={dates_array} />
 
           {/*<button  
             className="ExpeditionActivity-button"

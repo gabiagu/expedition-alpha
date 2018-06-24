@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './ExpeditionDay.css';
 import ExpeditionActivity from './ExpeditionActivity';
 import './ExpeditionActivity.css';
+import DeleteDay from './forms/DeleteDay';
+import './forms/DeleteDay.css';
 // import axios from 'axios';
 
 
@@ -10,7 +12,8 @@ class ExpeditionDay extends Component {
 
   constructor(props) {
     super(props);
-    this.data = this.props.data;    
+    this.data = this.props.data;
+    this.fullDataSet = this.props.fullDataSet;    
     this.state = {
       listIsHidden: true,
       editMode: this.props.editmode,
@@ -93,9 +96,7 @@ class ExpeditionDay extends Component {
         <div className="ExpeditionDay-wrapper">
             <div className={dateClassNames}>
 
-              <span className="ExpeditionDay-date"
-                onClick={(e) => this.toggleList(e)}
-                >
+              <span className="ExpeditionDay-date">
                 {this.props.data.date}
               </span>&nbsp;
 
@@ -123,7 +124,6 @@ class ExpeditionDay extends Component {
         return (
           <div className="ExpeditionDay-wrapper">
             <div className={dateClassNames}
-              onClick={(e) => this.toggleList(e)}
             >
 
               <button 
@@ -133,6 +133,8 @@ class ExpeditionDay extends Component {
                 >
                   >
               </button>
+
+              <DeleteDay data={this.data} date={this.props.data.fullDate} />
 
               <span className="ExpeditionDay-date">
                 {this.props.data.date}
@@ -150,7 +152,6 @@ class ExpeditionDay extends Component {
         return (
           <div className="ExpeditionDay-wrapper">
             <div className={dateClassNames}
-              onClick={(e) => this.toggleList(e)}
               >
               <button 
                 className="ExpeditionDay-button"
@@ -159,6 +160,9 @@ class ExpeditionDay extends Component {
                 >
                   ^
               </button>
+
+              <DeleteDay data={this.data} date={this.props.data.fullDate} />
+
               <span className="ExpeditionDay-date">
                 {this.props.data.date}
               </span>&nbsp;

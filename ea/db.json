@@ -3,6 +3,33 @@
     "title": "Expedition Alpha",
     "days": [
       {
+        "id": 626,
+        "date": "June 26",
+        "dateDay": 26,
+        "dateMonth": 6,
+        "fullDate": "06/26/2018",
+        "listId": "06/26/2018",
+        "activities": []
+      },
+      {
+        "id": 627,
+        "date": "June 27",
+        "dateDay": 27,
+        "dateMonth": 6,
+        "fullDate": "06/27/2018",
+        "listId": "06/27/2018",
+        "activities": []
+      },
+      {
+        "id": 629,
+        "date": "June 29",
+        "dateDay": 29,
+        "dateMonth": 6,
+        "fullDate": "06/29/2018",
+        "listId": "06/29/2018",
+        "activities": []
+      },
+      {
         "id": 823,
         "date": "Aug 23",
         "dateDay": 23,

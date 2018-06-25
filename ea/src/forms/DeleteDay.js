@@ -68,7 +68,7 @@ class DeleteDay extends Component {
         <button
             className="ExpeditionActivity-button"
             onClick={(e) => this.handleChange(this.props.date)}>
-            X
+            delete
         </button>
 
       </div>

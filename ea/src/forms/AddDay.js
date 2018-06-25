@@ -15,9 +15,7 @@ class AddDay extends Component {
     this.state = {
       startDate: moment(),
       isOpen: false,
-      date:'',
-      dates_array: this.props.dates_array,
-      highlightDates: this.props.dates_array
+      date:''
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -36,9 +34,6 @@ class AddDay extends Component {
   toggleCalendar (e) {
     e && e.preventDefault()
     this.setState({isOpen: !this.state.isOpen});
-    this.setState({highlightDates: this.state.dates_array})
-    
-    console.log(this.state.dates_array);
 
   }
 
@@ -48,6 +43,8 @@ class AddDay extends Component {
     var newDateMonth = newDate.split('/')[0];
 
     let newDateForJson = newDateMonth.toString() + newDateDay.toString();
+
+    newDateForJson = parseInt(newDateForJson, 10);
 
     /*newDate = newDate.replace(/\//gi, '');
     console.log(newDate);
@@ -60,7 +57,7 @@ class AddDay extends Component {
     console.log(newDateContent)
 
     let datesList = [];
-
+    //let datesList = ['06/27/2018','06/28/2018'];
 
     // get list of existing dates
     this.data.days.map(function(object, i){
@@ -73,42 +70,74 @@ class AddDay extends Component {
     })
 
     // insert new date in the list of ids so we can sort
-    datesList.push(newDateForJson);
+    if ( datesList.indexOf(newDateForJson) === -1 ) {
 
-    // sort the list of dates
-    datesList.sort(function(a, b){return a - b});
+      datesList.push(newDateForJson);
 
-    // get index of the new date in the array
-    let newDateIndex = datesList.indexOf(newDateForJson);
+      // sort the list of dates
+      datesList.sort(function(a, b){return a - b});
 
-    this.data.days.splice(newDateIndex, 0, newDateContent);
+      // get index of the new date in the array
+      let newDateIndex = datesList.indexOf(newDateForJson);
 
-    // console.log(this.data.days);
+      this.data.days.splice(newDateIndex, 0, newDateContent);
 
-    let days = this.data.days;
+      // console.log(this.data.days);
 
-    axios.post('http://localhost:3004/Alpha001',
-    {
-      title: this.data.title,
-      days
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      let days = this.data.days;
+
+      axios.post('http://localhost:3004/Alpha001',
+      {
+        title: this.data.title,
+        days
+      }).
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    } else {
+
+      // date already exists, show some kind of error message, no?
+    }
+
+    this.props.handler;
+
   }
-
-  
-
 
   render() {
 
     return (
 
       <div className="AddDay-wrapper">
-        <button
+
+        <DatePicker
+          className="AddDay-input"
+          selected={this.state.startDate}
+          onChange={this.handleChange}
+          dateFormat="LL"
+          placeholderText="Choose date"
+          locale="en-gb"
+          highlightDates={["06/27/2018","06/28/2018"]}
+          minDate={moment()}
+          popperClassName="some-custom-class"
+          popperPlacement="top-end"
+          popperModifiers={{
+            offset: {
+              enabled: true,
+              offset: '5px, 10px'
+            },
+            preventOverflow: {
+              enabled: true,
+              escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
+              boundariesElement: 'viewport'
+            }
+          }}
+        />
+
+        {/*<button
             className="ExpeditionActivity-button"
             onClick={(e) => this.toggleCalendar(e)}>
             Add another date
@@ -122,13 +151,24 @@ class AddDay extends Component {
             dateFormat="LL"
             placeholderText="Choose date"
             locale="en-gb"
-            // highlightDates={[this.state.dates_array]}
+            highlightDates={["06/27/2018","06/28/2018"]}
             minDate={moment()}
-            withPortal
-            inline 
+            popperClassName="some-custom-class"
+            popperPlacement="top-end"
+            popperModifiers={{
+              offset: {
+                enabled: true,
+                offset: '5px, 10px'
+              },
+              preventOverflow: {
+                enabled: true,
+                escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
+                boundariesElement: 'viewport'
+              }
+            }}
           />
           )
-        }
+        }*/}
 
       </div>
       

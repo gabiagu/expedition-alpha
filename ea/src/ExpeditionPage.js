@@ -4,7 +4,7 @@ import ExpeditionDay from './ExpeditionDay';
 import './ExpeditionDay.css';
 import AddDay from './forms/AddDay';
 import './forms/AddDay.css';
-import moment from 'moment';
+// import moment from 'moment';
 // import axios from 'axios';
 
 
@@ -15,9 +15,19 @@ class ExpeditionPage extends Component {
       super(props);
       this.data = this.props.data;    
       this.state = {
-        editMode: false
+        editMode: false,
+        shouldUpdate: false
       };
+      this.handler = this.handler.bind(this)
   }
+
+  handler(e) {
+    e.preventDefault()
+    this.setState({
+      shouldUpdate: true
+    })
+  }
+
 
   toggleMode(e) {
     e.preventDefault();
@@ -31,7 +41,7 @@ class ExpeditionPage extends Component {
 
     // console.log(this.props.data);
 
-    let dates_array = [moment('06/27/2018'),moment('06/28/2018')];
+    // let dates_array = [moment('06/27/2018'),moment('06/28/2018')];
 
     let ExpeditionTitle = this.props.data.title;
     //console.log(ExpeditionTitle);
@@ -88,7 +98,7 @@ class ExpeditionPage extends Component {
             />
           
           
-          <AddDay data={this.props.data} dates_array={dates_array} />
+          <AddDay data={this.props.data} />
 
           {/*<button  
             className="ExpeditionActivity-button"

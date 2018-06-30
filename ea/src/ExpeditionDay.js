@@ -17,13 +17,22 @@ class ExpeditionDay extends Component {
     this.state = {
       listIsHidden: true,
       editMode: this.props.editmode,
-      showList: false
+      showList: false,
+      shouldUpdate: false
     };
     // this.handleClick = this.handleClick.bind(this);
     // console.log(this.state.editMode);
+    this.updateParent = this.updateParent.bind(this);
   }
 
-  
+  updateParent() {
+    
+    //e.preventDefault()
+    this.setState({
+      shouldUpdate: true
+    });
+    this.props.handler();
+  }
 
   toggleList(e) {
     e.preventDefault();
@@ -134,7 +143,12 @@ class ExpeditionDay extends Component {
                   >
               </button>
 
-              <DeleteDay data={this.data} date={this.props.data.fullDate} />
+              <DeleteDay 
+                data={this.data} 
+                date={this.props.data.fullDate}
+                deleteItem={this.props.deleteItem}
+                updateParent={this.updateParent}
+                />
 
               <span className="ExpeditionDay-date">
                 {this.props.data.date}

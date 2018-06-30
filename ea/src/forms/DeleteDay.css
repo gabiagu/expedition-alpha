@@ -1,7 +1,19 @@
-.AddDay-dateInput {
-	border: 1px solid #666;
-	padding: 10px 15px;
-	border-radius: 15px;
-	margin: 10px;
-	font-size: 14px;
+.btn-deleteDay {
+	border-radius: 50%;
+	padding: 4px;
+	background: transparent;
+	border: none;
+	font-size: 0;
+	position: absolute;
+    top: 4px;
+    right: 0;
+}
+.btn-deleteDay svg {
+	fill: #bbb;
+}
+.btn-deleteDay:hover {
+	background: red;
+}
+.btn-deleteDay:hover svg {
+	fill: #fff;
 }

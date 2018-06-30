@@ -6,6 +6,7 @@
 	font-size: 18px;
 	/* color: blue; light blue */
 	border-bottom: 1px dashed #999;
+	position: relative;
 }
 
 .ExpeditionDay-button {

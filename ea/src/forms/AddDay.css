@@ -13,3 +13,49 @@
 	margin: 10px;
 	font-size: 14px;
 }
+
+/* .AddDay-wrapper {
+	width: 60px;
+	height: 60px;
+	background: lightseagreen;
+	border-radius: 50%;
+	position: fixed;
+	left: 30px;
+	bottom: 30px;
+}
+
+.AddDay-input {
+	border: none;
+    cursor: pointer;
+    margin: 0 0 0 60px;
+    padding: 0;
+    background: transparent;
+	color: #fff;
+	width: 20px;
+}
+.AddDay-input:focus {
+	outline:none;
+}
+
+.AddDay-input label {
+	width: 60px;
+	height: 60px;
+	
+	border-radius: 50%;
+}
+
+.AddDay-icon {
+	
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	fill: #fff;
+	cursor: pointer;
+	position: relative;
+	top: 6px;
+	left: 6px;
+}
+
+.AddDay-wrapper:hover {
+	background: forestgreen;
+} */

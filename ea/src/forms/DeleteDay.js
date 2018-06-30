@@ -11,7 +11,6 @@ class DeleteDay extends Component {
       date:'',
       data: []
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -22,53 +21,23 @@ class DeleteDay extends Component {
       })
   }
 
-  handleChange (date) {
-
-    let deleteItemIndex = '';
-
-    // get list of existing dates
-    this.state.data.days.map(function(object, i){
-      // if fullDate is the same as date to delete
-      if (object.fullDate.toString() === date.toString()) {
-        // log the index
-        deleteItemIndex = [i]; 
-      }
-
-      return(deleteItemIndex)
-
-    })
-
-    //console.log(deleteItemIndex)
-    // remove index item from the array
-    this.state.data.days.splice(deleteItemIndex, 1);
-
-    let days = this.state.data.days;
-
-    axios.post('http://localhost:3004/Alpha001',
-    {
-      title: this.state.data.title,
-      days
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-
-  }
-
 
   render() {
 
     return (
 
       <div className="DeleteDay-wrapper">
-        <button
+
+        {/*<button
             className="ExpeditionActivity-button"
-            onClick={(e) => this.handleChange(this.props.date)}>
+            onClick={(e) => this.handleChange(this.props.date, this)}>
             delete
+        </button>*/}
+        <button
+            className="ExpeditionActivity-button btn-deleteDay"
+            title="delete this day"
+            onClick={(e) => this.props.deleteItem(this.props.date)}>
+            <svg width="24" height="24" viewBox="0 0 48 48"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"/></svg>
         </button>
 
       </div>

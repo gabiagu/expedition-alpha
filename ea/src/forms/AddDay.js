@@ -18,6 +18,7 @@ class AddDay extends Component {
       date:''
     };
     this.handleChange = this.handleChange.bind(this);
+    // var _self = this;
   }
 
   handleChange (date) {
@@ -25,19 +26,11 @@ class AddDay extends Component {
 
     let newDateName = moment(date).format('LL').toString().split(',')[0];
     let newDate = moment(date).format('L');
-    
-    this.toggleCalendar();
 
-    this.submitDate(newDateName, newDate);
+    this.submitDate(newDateName, newDate, this);
   }
 
-  toggleCalendar (e) {
-    e && e.preventDefault()
-    this.setState({isOpen: !this.state.isOpen});
-
-  }
-
-  submitDate(newDateName, newDate) {
+  submitDate(newDateName, newDate, self) {
     // after getting the date like 14/02/1999, split it
     var newDateDay = newDate.split('/')[1];
     var newDateMonth = newDate.split('/')[0];
@@ -54,7 +47,7 @@ class AddDay extends Component {
 
     //newDateContent = JSON.stringify(newDateContent);
 
-    console.log(newDateContent)
+    // console.log(newDateContent)
 
     let datesList = [];
     //let datesList = ['06/27/2018','06/28/2018'];
@@ -90,9 +83,11 @@ class AddDay extends Component {
       {
         title: this.data.title,
         days
-      }).
+      })
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
+        self.props.addDayHandler();
+        // console.log('called handler');
       })
       .catch(function (error) {
         console.log(error);
@@ -103,7 +98,7 @@ class AddDay extends Component {
       // date already exists, show some kind of error message, no?
     }
 
-    this.props.handler;
+    
 
   }
 
@@ -112,63 +107,24 @@ class AddDay extends Component {
     return (
 
       <div className="AddDay-wrapper">
+        
+        Add another day: 
+          
+          {/* <svg className="AddDay-icon" width="48" height="48" viewBox="0 0 48 48"><path d="M38 26H26v12h-4V26H10v-4h12V10h4v12h12v4z"/></svg> */}
 
-        <DatePicker
-          className="AddDay-input"
-          selected={this.state.startDate}
-          onChange={this.handleChange}
-          dateFormat="LL"
-          placeholderText="Choose date"
-          locale="en-gb"
-          highlightDates={["06/27/2018","06/28/2018"]}
-          minDate={moment()}
-          popperClassName="some-custom-class"
-          popperPlacement="top-end"
-          popperModifiers={{
-            offset: {
-              enabled: true,
-              offset: '5px, 10px'
-            },
-            preventOverflow: {
-              enabled: true,
-              escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
-              boundariesElement: 'viewport'
-            }
-          }}
-        />
-
-        {/*<button
-            className="ExpeditionActivity-button"
-            onClick={(e) => this.toggleCalendar(e)}>
-            Add another date
-        </button>
-
-        {
-          this.state.isOpen && (
-            <DatePicker
+          <DatePicker
+            className="AddDay-input"
             selected={this.state.startDate}
             onChange={this.handleChange}
             dateFormat="LL"
+            shouldCloseOnSelect
+            disabledKeyboardNavigation
+            //onBlur={this.props.handler}
             placeholderText="Choose date"
             locale="en-gb"
             highlightDates={["06/27/2018","06/28/2018"]}
             minDate={moment()}
-            popperClassName="some-custom-class"
-            popperPlacement="top-end"
-            popperModifiers={{
-              offset: {
-                enabled: true,
-                offset: '5px, 10px'
-              },
-              preventOverflow: {
-                enabled: true,
-                escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
-                boundariesElement: 'viewport'
-              }
-            }}
           />
-          )
-        }*/}
 
       </div>
       

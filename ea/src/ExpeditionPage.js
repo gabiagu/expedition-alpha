@@ -5,7 +5,7 @@ import './ExpeditionDay.css';
 import AddDay from './forms/AddDay';
 import './forms/AddDay.css';
 // import moment from 'moment';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 
@@ -16,18 +16,69 @@ class ExpeditionPage extends Component {
       this.data = this.props.data;    
       this.state = {
         editMode: false,
-        shouldUpdate: false
+        shouldUpdate: false,
+        listOfDays: props.days
       };
-      this.handler = this.handler.bind(this)
+      this.addDayHandler = this.addDayHandler.bind(this);
+      this.deleteItem = this.deleteItem.bind(this);
   }
 
-  handler(e) {
-    e.preventDefault()
+  addDayHandler() {
+    //e.preventDefault()
     this.setState({
       shouldUpdate: true
     })
   }
 
+  refresh() {
+    this.setState({
+      shouldUpdate: true
+    })
+  }
+  
+  deleteItem(item) {
+    console.log('should delete: '+item);
+
+    let deleteItemIndex = '';
+
+    // get list of existing dates
+
+    this.props.data.days.map(function(object, i){
+      // if fullDate is the same as date to delete
+      if (object.fullDate.toString() === item.toString()) {
+        // log the index
+        deleteItemIndex = [i]; 
+      }
+
+      return(deleteItemIndex)
+
+    })
+
+    // remove index item from the array
+    this.props.data.days.splice(deleteItemIndex, 1);
+
+    let days = this.props.data.days;
+
+    console.log(this);
+
+    axios.post('http://localhost:3004/Alpha001',
+    {
+      title: this.props.data.title,
+      days
+    })
+    .then((response) => {
+      console.log(response);
+      // => arrow function works to bind this. noice.
+      this.setState({
+        shouldUpdate: true
+      })
+      console.log('deleted it.');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  }
 
   toggleMode(e) {
     e.preventDefault();
@@ -62,7 +113,11 @@ class ExpeditionPage extends Component {
                     // console.log(props.days.activities[0].length),
                     // console.log(object),
                     // console.log(object.listId.toString()),
-                    <ExpeditionDay data={props.days[i]} editmode={props.editmode} />
+                    <ExpeditionDay 
+                      data={props.days[i]} 
+                      editmode={props.editmode} 
+                      deleteItem={props.deleteItem}
+                      />
 
                 ]}
               </div>; 
@@ -95,10 +150,13 @@ class ExpeditionPage extends Component {
           <DayList 
             days={this.props.data.days} 
             editmode={this.state.editMode}
+            deleteItem={this.deleteItem}
             />
           
           
-          <AddDay data={this.props.data} />
+          <AddDay 
+            data={this.props.data} 
+            addDayHandler={this.addDayHandler} />
 
           {/*<button  
             className="ExpeditionActivity-button"

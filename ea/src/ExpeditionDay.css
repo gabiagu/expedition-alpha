@@ -1,7 +1,7 @@
 .ExpeditionDay-launcher {
 	display: inline-block;
 	width: 100%;
-	padding: 1em 0;
+	padding: 1em 2em;
 	text-decoration: none;
 	font-size: 18px;
 	/* color: blue; light blue */
@@ -20,4 +20,40 @@
 
 .ExpeditionDay-button:focus {
     outline: none;
+}
+
+.btn-ExpandCollapse {
+	border-radius: 50%;
+	padding: 4px;
+	margin: 0;
+	background: transparent;
+	border: none;
+	font-size: 0;
+	position: absolute;
+    top: 16px;
+    left: 0;
+}
+.btn-ExpandCollapse svg {
+	fill: #bbb;
+}
+.btn-ExpandCollapse:hover {
+	background: lightseagreen;
+}
+.btn-ExpandCollapse:hover svg {
+	fill: #fff;
+}
+
+.DayList-item__icon {
+	border-radius: 50%;
+	padding: 4px;
+	margin: 0;
+	background: transparent;
+	border: none;
+	font-size: 0;
+	position: absolute;
+    top: 16px;
+    left: 0;
+}
+.DayList-item__icon svg {
+	fill: #bbb;
 }

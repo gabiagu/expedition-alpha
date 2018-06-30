@@ -163,21 +163,6 @@ class ExpeditionActivity extends Component {
             
           </div>
         );
-      } else {
-        // no data, show blank fields
-        return (
-          <div>
-            <em>Nothing planned for this day</em>
-            <p>
-              <button  
-                className="ExpeditionActivity-button"
-                onClick={(e) => this.toggleMode(e)}
-                >
-                add activity
-              </button>
-            </p>
-          </div>
-        );
       }
 
       

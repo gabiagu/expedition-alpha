@@ -28,11 +28,6 @@ class DeleteDay extends Component {
 
       <div className="DeleteDay-wrapper">
 
-        {/*<button
-            className="ExpeditionActivity-button"
-            onClick={(e) => this.handleChange(this.props.date, this)}>
-            delete
-        </button>*/}
         <button
             className="ExpeditionActivity-button btn-deleteDay"
             title="delete this day"

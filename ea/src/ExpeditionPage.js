@@ -67,12 +67,12 @@ class ExpeditionPage extends Component {
       days
     })
     .then((response) => {
-      console.log(response);
+      //console.log(response);
       // => arrow function works to bind this. noice.
       this.setState({
         shouldUpdate: true
       })
-      console.log('deleted it.');
+      //console.log('deleted it.');
     })
     .catch(function (error) {
       console.log(error);
@@ -95,12 +95,9 @@ class ExpeditionPage extends Component {
     // let dates_array = [moment('06/27/2018'),moment('06/28/2018')];
 
     let ExpeditionTitle = this.props.data.title;
-    //console.log(ExpeditionTitle);
-
-    //console.log(this.props.data.days[0].date);
-    //console.log(this.props.data.days[0].activities[0].activity1[0].notes);
 
     function DayList(props) {
+
       const days = props.days;
       
       return (
@@ -110,14 +107,14 @@ class ExpeditionPage extends Component {
             return <div className={"row"} key={object.id.toString()}> 
                 {[ object.name ,
 
-                    // console.log(props.days.activities[0].length),
-                    // console.log(object),
-                    // console.log(object.listId.toString()),
-                    <ExpeditionDay 
-                      data={props.days[i]} 
-                      editmode={props.editmode} 
-                      deleteItem={props.deleteItem}
-                      />
+                  // console.log(props.days.activities[0].length),
+                  // console.log(object),
+                  // console.log(object.listId.toString()),
+                  <ExpeditionDay 
+                    data={props.days[i]} 
+                    editmode={props.editmode} 
+                    deleteItem={props.deleteItem} // this sends function to delete
+                    />
 
                 ]}
               </div>; 
@@ -127,15 +124,12 @@ class ExpeditionPage extends Component {
 
     }
 
-    // const days = this.props.data;
-    // console.log(this.props.data);
     let TotalDayCount = this.props.data.days.length;
     let StartDate = this.props.data.days[0].date;
     let EndDate = this.props.data.days[this.props.data.days.length-1].date;
 
-  
-    // display mode
     return (
+
       <div>
         <div className="ExpeditionPage-header">
           <h1>{ExpeditionTitle}</h1>
@@ -145,7 +139,7 @@ class ExpeditionPage extends Component {
         </div>
         <div className="ExpeditionPage-content">
           
-          {/* buttons to each day? */}
+          {/* list of days */}
           
           <DayList 
             days={this.props.data.days} 
@@ -153,26 +147,20 @@ class ExpeditionPage extends Component {
             deleteItem={this.deleteItem}
             />
           
-          
+          {/* button to add another one */}
           <AddDay 
             data={this.props.data} 
             addDayHandler={this.addDayHandler} />
 
-          {/*<button  
-            className="ExpeditionActivity-button"
-            onClick={(e) => this.toggleMode(e)}
-            >
-            edit
-          </button>*/}
         </div>
       </div>
+      
     );
 
 
   }
 
   render() {
-    //console.log(this.props.data);
       
     return (
 

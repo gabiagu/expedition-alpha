@@ -20,23 +20,10 @@ class ExpeditionDay extends Component {
       showList: false,
       shouldUpdate: false
     };
-    // this.handleClick = this.handleClick.bind(this);
-    // console.log(this.state.editMode);
-    this.updateParent = this.updateParent.bind(this);
-  }
-
-  updateParent() {
-    
-    //e.preventDefault()
-    this.setState({
-      shouldUpdate: true
-    });
-    this.props.handler();
   }
 
   toggleList(e) {
     e.preventDefault();
-    // toggle list of activities
     this.toggleHidden();
     
   };
@@ -45,7 +32,6 @@ class ExpeditionDay extends Component {
     this.setState({
       listIsHidden: !this.state.listIsHidden
     })
-    // console.log(this.state.listIsHidden);
   }
 
   toggleMode(e) {
@@ -53,7 +39,6 @@ class ExpeditionDay extends Component {
     this.setState({
       editMode: !this.state.editMode
     })
-    // console.log(this.state.listIsHidden);
   }
 
   ActivityList(props) {
@@ -64,9 +49,6 @@ class ExpeditionDay extends Component {
 
       if (activities.length) {
         // if there is data, show stuff
-        // console.log(props.editmode)
-        
-        // display mode with data
         return (
           <div className="ExpeditionDay-list" >
             {activities.map(function(object, i){
@@ -79,15 +61,6 @@ class ExpeditionDay extends Component {
               })}
           </div>
         );
-        
-        
-      } else {
-        // edit mode without data
-        return (
-          <div className="ExpeditionDay-list" >
-            <ExpeditionActivity mode="edit" />
-          </div>
-        );
       }
     }
 
@@ -97,7 +70,6 @@ class ExpeditionDay extends Component {
 
     const dateClassNames = 'ExpeditionDay-launcher';
     const activities = this.props.data.activities
-    // this renders the things
 
     if ( this.state.editMode ) {
       // edit mode
@@ -129,19 +101,39 @@ class ExpeditionDay extends Component {
       // display mode
 
       if ( this.state.listIsHidden ) {
-        // show only date
+        // show date
+        // === collapsed view
+        // ==================
         return (
           <div className="ExpeditionDay-wrapper">
             <div className={dateClassNames}
             >
 
-              <button 
-                className="ExpeditionDay-button"
-                onClick={(e) => this.toggleList(e)}
-                title="expand"
-                >
-                  >
-              </button>
+              {
+                ! this.props.data.activities.length > 0 && (
+                  <div 
+                    className="DayList-item__icon"
+                    title="Nothing planned for this day"
+                    >
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M19 13H5v-2h14v2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                  </div>
+                )
+              }
+
+              {
+                this.props.data.activities.length > 0 && (
+                  <button 
+                    className="ExpeditionDay-button btn-ExpandCollapse"
+                    onClick={(e) => this.toggleList(e)}
+                    title="show more"
+                    >
+                      <svg width="24" height="24" viewBox="0 0 48 48"><path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"/></svg>
+                  </button>
+                )
+              }
 
               <DeleteDay 
                 data={this.data} 
@@ -153,9 +145,18 @@ class ExpeditionDay extends Component {
               <span className="ExpeditionDay-date">
                 {this.props.data.date}
               </span>&nbsp;
-
               (<span className="ExpeditionDay-activity-count">{this.props.data.activities.length} activities</span>)
-              
+              {
+                ! this.props.data.activities.length > 0 && (
+                  <a href="foobar"
+                    className="AddActivity"
+                    onClick={this.handleChange}
+                    >
+                    add an activity
+                  </a>
+                )
+              }
+
             </div>
             
           </div>
@@ -163,19 +164,28 @@ class ExpeditionDay extends Component {
 
       } else {
         // show date and list
+        // === expanded view
+        // =================
         return (
           <div className="ExpeditionDay-wrapper">
             <div className={dateClassNames}
               >
               <button 
-                className="ExpeditionDay-button"
+                className="ExpeditionDay-button btn-ExpandCollapse"
                 onClick={(e) => this.toggleList(e)}
-                title="collapse"
+                title="show less"
                 >
-                  ^
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M24 16L12 28l2.83 2.83L24 21.66l9.17 9.17L36 28z"/></svg>
               </button>
 
-              <DeleteDay data={this.data} date={this.props.data.fullDate} />
+              
+
+              <DeleteDay 
+                data={this.data} 
+                date={this.props.data.fullDate}
+                deleteItem={this.props.deleteItem}
+                updateParent={this.updateParent}
+                />
 
               <span className="ExpeditionDay-date">
                 {this.props.data.date}

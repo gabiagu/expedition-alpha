@@ -20,7 +20,8 @@ class ExpeditionPage extends Component {
         listOfDays: props.days
       };
       this.addDayHandler = this.addDayHandler.bind(this);
-      this.deleteItem = this.deleteItem.bind(this);
+      this.deleteItemHandler = this.deleteItemHandler.bind(this);
+      this.addActivityHandler = this.addActivityHandler.bind(this);
   }
 
   addDayHandler() {
@@ -29,15 +30,43 @@ class ExpeditionPage extends Component {
       shouldUpdate: true
     })
   }
-
-  refresh() {
-    this.setState({
+  addActivityHandler(item) {
+    // e.preventDefault()
+    /*this.setState({
       shouldUpdate: true
-    })
+    })*/
+    console.log(item)
+    // console.log('should add: '+item);
+
+    let targetItemIndex = '';
+
+    // get list of existing dates
+
+    this.props.data.days.map(function(object, i){
+      // if fullDate is the same as date to add activity to
+      if (object.fullDate.toString() === item.toString()) {
+        // log the index
+        targetItemIndex = [i]; 
+      }
+
+      return(targetItemIndex)
+
+    });
+
+    console.log(targetItemIndex);
+
+    /*"type": "hike",
+            "time": "2h",
+            "notes": "this is a note for hike",
+            "activityId": 201*/
+
+    // add it to the activities array
+    this.props.data.days[targetItemIndex].activities.push({type:"hike","time":"2h","notes":"","activityId":parseInt((Math.random() * 1000000), 10)})
+    console.log(this.props.data.days[targetItemIndex].activities);
   }
   
-  deleteItem(item) {
-    console.log('should delete: '+item);
+  deleteItemHandler(item) {
+    // console.log('should delete: '+item);
 
     let deleteItemIndex = '';
 
@@ -59,7 +88,7 @@ class ExpeditionPage extends Component {
 
     let days = this.props.data.days;
 
-    console.log(this);
+    // console.log(this);
 
     axios.post('http://localhost:3004/Alpha001',
     {
@@ -113,7 +142,8 @@ class ExpeditionPage extends Component {
                   <ExpeditionDay 
                     data={props.days[i]} 
                     editmode={props.editmode} 
-                    deleteItem={props.deleteItem} // this sends function to delete
+                    deleteItemHandler={props.deleteItemHandler} // this sends function to delete
+                    addActivityHandler={props.addActivityHandler}
                     />
 
                 ]}
@@ -144,7 +174,8 @@ class ExpeditionPage extends Component {
           <DayList 
             days={this.props.data.days} 
             editmode={this.state.editMode}
-            deleteItem={this.deleteItem}
+            deleteItemHandler={this.deleteItemHandler}
+            addActivityHandler={this.addActivityHandler}
             />
           
           {/* button to add another one */}
@@ -154,7 +185,7 @@ class ExpeditionPage extends Component {
 
         </div>
       </div>
-      
+
     );
 
 

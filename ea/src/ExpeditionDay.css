@@ -5,8 +5,11 @@
 	text-decoration: none;
 	font-size: 18px;
 	/* color: blue; light blue */
-	border-bottom: 1px dashed #999;
+	/* border-bottom: 1px dashed #999; */
 	position: relative;
+}
+.ExpeditionDay-launcher:hover {
+	background: #eee;
 }
 
 .ExpeditionDay-button {
@@ -56,4 +59,10 @@
 }
 .DayList-item__icon svg {
 	fill: #bbb;
+}
+
+.ExpeditionDay-date-add-activity {
+	text-decoration: none;
+	display: inline-block;
+	margin-left: 8px;
 }

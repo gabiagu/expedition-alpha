@@ -13,12 +13,13 @@
 }
 
 .ExpeditionDay-button {
-	border: 1px solid #ccc;
-	padding: 5px 10px;
-	margin: 5px;
-	cursor: pointer;
-	border-radius: 20px;
-	font-size: 14px;
+	border: none;
+    padding: 4px 12px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 24px;
 }
 
 .ExpeditionDay-button:focus {
@@ -34,7 +35,8 @@
 	font-size: 0;
 	position: absolute;
     top: 16px;
-    left: 0;
+	left: 0;
+	line-height: 0;
 }
 .btn-ExpandCollapse svg {
 	fill: #bbb;
@@ -65,4 +67,136 @@
 	text-decoration: none;
 	display: inline-block;
 	margin-left: 8px;
+}
+
+.ReactModal__Content {
+	opacity: 0;
+	width: 80%;
+    max-width: 600px;
+	min-width: 200px;
+	border: 1px solid #ccc;
+    background:#fff;
+    overflow: auto;
+    border-radius: 12px !important;
+    outline: none;
+    padding: 36px !important;
+}
+
+.ReactModal__Content--after-open {
+	opacity: 1;
+	transition: opacity 150ms;
+}
+
+.ReactModal__Content--before-close {
+	opacity: 0;
+}
+
+.btn-ModalClose {
+	position: absolute;
+    top: 12px;
+    right: 12px;
+    border-radius: 50%;
+    padding: 5px;
+	line-height: 0;
+	background:transparent;
+	cursor: pointer;
+}
+.btn-ModalClose svg {
+	fill: #bbb;
+}
+.btn-ModalClose:hover {
+	background: red;
+}
+.btn-ModalClose:hover svg {
+	fill: #fff;
+}
+
+.AddActivityModal h2 {
+	font-weight: normal;
+	margin-bottom: 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eee;
+	
+}
+
+.formContainer,
+.formContainerRow {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+.formContainerRow {
+	margin-bottom: 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eee;
+}
+.formContainerColumn {
+	float: left;
+}
+.formContainerColumn-label {
+	width: 150px;
+}
+
+
+.formContainerColumn .react-datepicker__input-container input {
+	background:#eee;
+	border-radius: 4px;
+	padding: 8px 12px;
+	cursor: pointer;
+	width: 62px;
+	outline: none;
+}
+.formContainerColumn .react-datepicker-popper {
+	margin-top: -4px !important;
+}
+
+.formTextarea {
+	background: #eee;
+    border-radius: 8px;
+    padding: 16px;
+    outline: none;
+    font-family: Arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.formTextarea::placeholder {
+	font-style: italic;
+}
+
+.react-datepicker__time-container {
+	width: 160px !important;
+}
+.react-datepicker__header--time,
+.react-datepicker__triangle {
+	display: none !important;
+}
+.react-datepicker--time-only {
+	background: #eee !important;
+	border: none !important;
+	border-radius: 4px !important;
+	padding: 4px !important;
+	font-size: 14px !important;
+}
+.react-datepicker__time-box {
+	width: auto !important;
+}
+.react-datepicker__time-list-item--selected {
+	background: #888 !important;
+}
+.react-datepicker__time-list-item {
+	width: 100%;
+	/* padding: 0 !important; */
+	line-height: 24px;
+}
+
+.react-datepicker--time-only .react-datepicker__time {
+	border-radius: 0 !important;
+}
+
+.ExpeditionDay-button.--addActivityType {
+	border-radius: 8px;
+}
+.ExpeditionDay-button.--addActivityType:hover {
+	color: #fff;
+	background: forestgreen;
 }

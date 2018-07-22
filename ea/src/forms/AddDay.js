@@ -25,12 +25,16 @@ class AddDay extends Component {
     this.setState({startDate: date});
 
     let newDateName = moment(date).format('LL').toString().split(',')[0];
+    //console.log(newDateName);
     let newDate = moment(date).format('L');
+    let newfullDate = moment(date);
+    //console.log(newDate);
+    //console.log(newfullDate);
 
-    this.submitDate(newDateName, newDate, this);
+    this.submitDate(newDateName, newDate, newfullDate, this);
   }
 
-  submitDate(newDateName, newDate, self) {
+  submitDate(newDateName, newDate, newfullDate, self) {
     // after getting the date like 14/02/1999, split it
     var newDateDay = newDate.split('/')[1];
     var newDateMonth = newDate.split('/')[0];
@@ -43,7 +47,7 @@ class AddDay extends Component {
     console.log(newDate);
     return false;*/
 
-    let newDateContent = {id:parseInt(newDateForJson, 10),date:newDateName.toString(),dateDay:parseInt(newDateDay, 10),dateMonth:parseInt(newDateMonth, 10),fullDate:newDate,listId:newDate.toString(),activities:[]};
+    let newDateContent = {id:parseInt(newDateForJson, 10),date:newDateName.toString(),dateDay:parseInt(newDateDay, 10),dateMonth:parseInt(newDateMonth, 10),fullDate:newfullDate,listId:newDate.toString(),activities:[]};
 
     //newDateContent = JSON.stringify(newDateContent);
 
@@ -108,9 +112,7 @@ class AddDay extends Component {
 
       <div className="AddDay-wrapper">
         
-        Add another day: 
-          
-          {/* <svg className="AddDay-icon" width="48" height="48" viewBox="0 0 48 48"><path d="M38 26H26v12h-4V26H10v-4h12V10h4v12h12v4z"/></svg> */}
+        <p>Add another day:</p>
 
           <DatePicker
             className="AddDay-input"

@@ -1,89 +1,114 @@
 {
-    "Alpha001": {
-        "title":"Expedition Alpha",
-        "days": [
-            {
-                "id":1,
-                "date":"Aug 22", 
-                "listId":101,
-                "activities": []
-            },
-            {
-                "id":2,
-                "date":"Aug 23",
-                "listId":102, 
-                "activities": [
-                    {
-                        "type":"hike",
-                        "time":"2h",
-                        "notes":"this is a note for hike",
-                        "activityId":201
-                    },
-                    {
-                        "type":"hike",
-                        "time":"2h",
-                        "notes":"this is a note for hike 2",
-                        "activityId":202
-                    },
-                    {
-                        "type":"flight",
-                        "time":"4h",
-                        "notes":"this is a note for flight",
-                        "activityId":203
-                    }
-                ]
-            },
-            {
-                "id":3,
-                "date":"Aug 24", 
-                "listId":103,
-                "activities": [
-                    {
-                        "type":"hike",
-                        "time":"2h",
-                        "notes":"this is a note for hike",
-                        "activityId":303
-                    },
-                    {
-                        "type":"train",
-                        "time":"2h",
-                        "notes":"this is a note for train",
-                        "activityId":304
-                    },
-                    {
-                        "type":"flight",
-                        "time":"4h",
-                        "notes":"this is a note for flight",
-                        "activityId":305
-                    }
-                ]
-            }
+  "Alpha001": {
+    "title": "Expedition Alpha",
+    "days": [
+      {
+        "id": 709,
+        "date": "July 9",
+        "dateDay": 9,
+        "dateMonth": 7,
+        "fullDate": "2018-07-09T09:54:27.000Z",
+        "listId": "07/09/2018",
+        "activities": []
+      },
+      {
+        "id": 710,
+        "date": "July 10",
+        "dateDay": 10,
+        "dateMonth": 7,
+        "fullDate": "2018-07-10T09:54:27.000Z",
+        "listId": "07/10/2018",
+        "activities": []
+      },
+      {
+        "id": 712,
+        "date": "July 12",
+        "dateDay": 12,
+        "dateMonth": 7,
+        "fullDate": "2018-07-12T09:54:27.000Z",
+        "listId": "07/12/2018",
+        "activities": []
+      },
+      {
+        "id": 823,
+        "date": "Aug 23",
+        "dateDay": 23,
+        "dateMonth": 8,
+        "fullDate": "20180823",
+        "activities": [
+          {
+            "type": "hike",
+            "time": "2h",
+            "notes": "this is a note for hike",
+            "activityId": 201
+          },
+          {
+            "type": "hike",
+            "time": "2h",
+            "notes": "this is a note for hike 2",
+            "activityId": 202
+          },
+          {
+            "type": "flight",
+            "time": "4h",
+            "notes": "this is a note for flight",
+            "activityId": 203
+          }
         ]
-    },
-    "Alpha002": {
-        "Day1": [
-            {
-                "date":"Aug 22", 
-                "activity": "flight",
-                "notes": "this is flight"
-            },
-            {
-                "date":"Aug 22", 
-                "activity": "hotel",
-                "notes": "this is hotel"
-            }
-        ],
-        "Day2": [
-            {
-                "date":"Aug 23", 
-                "activity": "hike",
-                "notes": "this is hike"
-            },
-            {
-                "date":"Aug 22", 
-                "activity": "hotel",
-                "notes": "this is hotel"
-            }
+      },
+      {
+        "id": 824,
+        "date": "Aug 24",
+        "dateDay": 24,
+        "dateMonth": 8,
+        "fullDate": "20180823",
+        "activities": [
+          {
+            "type": "hike",
+            "time": "2h",
+            "notes": "this is a note for hike",
+            "activityId": 303
+          },
+          {
+            "type": "train",
+            "time": "2h",
+            "notes": "this is a note for train",
+            "activityId": 304
+          },
+          {
+            "type": "flight",
+            "time": "4h",
+            "notes": "this is a note for flight",
+            "activityId": 305
+          }
         ]
-    }
+      }
+    ]
+  },
+  "Alpha002": {
+    "Day1": [
+      {
+        "date": "Aug 22",
+        "activity": "flight",
+        "notes": "this is flight"
+      },
+      {
+        "date": "Aug 22",
+        "activity": "hotel",
+        "notes": "this is hotel"
+      }
+    ],
+    "Day2": [
+      {
+        "date": "Aug 23",
+        "activity": "hike",
+        "notes": "this is hike"
+      },
+      {
+        "date": "Aug 22",
+        "activity": "hotel",
+        "notes": "this is hotel"
+      }
+    ]
+  }
 }

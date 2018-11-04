@@ -51,9 +51,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
+        {/*<header className="App-header">
           <h1 className="App-title">Expeditii</h1>
-        </header>
+    </header>*/}
         { this.state && this.state.data.days && 
           <div className="App-content">
             <ExpeditionPage data={this.state.data} />
